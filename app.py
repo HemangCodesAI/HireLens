@@ -1,13 +1,13 @@
 import streamlit as st
 import os
 import base64
-from main import get_shit,process_shit
+from main import get_posting,process_resume
 from PyPDF2 import PdfReader
 from markdownify import markdownify
 # Set up the Streamlit app
 st.set_page_config("Boss ka project",page_icon="random",layout="wide")
 
-st.title("HR Ki maa ki chut")
+st.title("HireLens")
 
 
 def pdf_to_markdown(pdf_path, markdown_path='inputs/resume.md'):
@@ -35,15 +35,40 @@ def pdf_to_markdown(pdf_path, markdown_path='inputs/resume.md'):
 tab1, tab2= st.tabs(["Job Post Maker", "Candidate Analysis"])
 with tab1:
     prompt=st.text_input('Enter some text')
-    b=st.button('generate shit') 
+    b=st.button('generate') 
     if b:
         # Show a spinner during a process
         with st.spinner(text='In progress'):
-            shit=get_shit(prompt)
+            shit=get_posting(prompt)
         st.markdown(shit)
         # st.balloons()
         st.snow()
         st.toast('TADA!!!!')
+    else:
+        st.markdown("""# Project Submission Details
+
+### **Project Description:**
+- **Project Title:** HireLens
+- **Objective:**  
+  The primary objective of this project is to revolutionize the hiring process by automating job posting creation and providing a comprehensive resume analysis against job requirements. This system aims to enhance candidate preparation for interviews by generating detailed reports highlighting strengths, weaknesses, and areas for improvement.  
+
+- **Overview:**  
+  This project leverages cutting-edge **Magnetic AI Technology** and **Gemini LLM** to streamline recruitment and candidate evaluation. The system automatically creates tailored job postings, matches candidate resumes against these postings, and provides insightful feedback. Key functionalities include:  
+  - Automated job posting generation based on industry standards.  
+  - Detailed candidate resume analysis with gap identification.  
+  - Comprehensive interview preparation reports for candidates, including skill alignment and improvement suggestions.  
+  - Utilization of advanced natural language understanding for precise job-resume matching.  
+
+  By combining innovative AI technologies, this solution ensures efficiency for recruiters and better preparation for candidates, ultimately enhancing the hiring experience.
+### **Project Created By:**
+| **Name**          | **Roll Number** | **Email Address**               |
+|--------------------|-----------------|--------------------------------|
+| Hemang Joshi       | 21BCON330       | hemang.21bcon330@jrcrcu.edu.in |
+| Cherry Singh       | 21BCON346       | cherry.21bcon346@jrcrcu.edu.in |
+
+- **Name of Mentor:** Mrs. Sneha Rathour  
+- **Submited To:** Dr.Ravi Kumar Sharma  
+""")
 with tab2:
     col1, col2 = st.columns(2)
     with col1:
@@ -74,7 +99,7 @@ with tab2:
     c=st.button("Process candidate")
     if c:
         with st.spinner("Analyzing"):
-            analysis=process_shit()
+            analysis=process_resume()
         st.markdown(analysis)
         # st.balloons()
         st.snow()

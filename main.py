@@ -85,11 +85,11 @@ HR_agent=Agent(
     show_tool_calls=False,
     markdown=False
 )
-def process_shit():
+def process_resume():
     prompt = "Compare this candidates resume for this job posting and provide a detailed analysis on how well the candidate fits the job role."
     out=HR_agent.run(prompt, markdown=True, show_time=True)
     return out.content[out.content.find('**'):]
     # return out.content
-def get_shit(prompt):
+def get_posting(prompt):
     response = multiple_agent.run(prompt, markdown=True, show_time=True)
     return response.content[response.content.find("#"):response.content.find('''", "additional_information"''')]
