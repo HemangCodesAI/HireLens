@@ -5,7 +5,7 @@ from main import get_posting,process_resume
 from PyPDF2 import PdfReader
 from markdownify import markdownify
 # Set up the Streamlit app
-st.set_page_config("Boss ka project",page_icon="random",layout="wide")
+st.set_page_config("HireLens",page_icon="random",layout="wide")
 
 st.title("HireLens")
 
