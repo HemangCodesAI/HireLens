@@ -67,7 +67,7 @@ with tab1:
 | Cherry Singh       | 21BCON346       | cherry.21bcon346@jrcrcu.edu.in |
 
 - **Name of Mentor:** Mrs. Sneha Rathour  
-- **Submited To:** Dr.Ravi Kumar Sharma  
+- **Submitted To:** Dr.Ravi Kumar Sharma  
 """)
 with tab2:
     col1, col2 = st.columns(2)
