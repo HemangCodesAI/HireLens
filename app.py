@@ -4,12 +4,11 @@ import base64
 from main import get_posting,process_resume
 from PyPDF2 import PdfReader
 from markdownify import markdownify
-# Set up the Streamlit app
-st.set_page_config("HireLens",page_icon="random",layout="wide")
 
+st.set_page_config("HireLens",page_icon="random",layout="wide",initial_sidebar_state="collapsed")
 st.title("HireLens")
 
-
+# Set up the Streamlit app
 def pdf_to_markdown(pdf_path, markdown_path='inputs/resume.md'):
     # Check if the PDF file exists
     if not os.path.exists(pdf_path):
@@ -34,7 +33,7 @@ def pdf_to_markdown(pdf_path, markdown_path='inputs/resume.md'):
 
 tab1, tab2= st.tabs(["Job Post Maker", "Candidate Analysis"])
 with tab1:
-    prompt=st.text_input('Enter some text')
+    prompt=st.text_input('Enter the job role')
     b=st.button('generate') 
     if b:
         # Show a spinner during a process
@@ -61,14 +60,14 @@ with tab1:
 
   By combining innovative AI technologies, this solution ensures efficiency for recruiters and better preparation for candidates, ultimately enhancing the hiring experience.
 ### **Project Created By:**
-| **Name**          | **Roll Number** | **Email Address**               |
+| **Name**           | **Roll Number** | **Email Address**              |
 |--------------------|-----------------|--------------------------------|
-| Hemang Joshi       | 21BCON330       | hemang.21bcon330@jrcrcu.edu.in |
-| Cherry Singh       | 21BCON346       | cherry.21bcon346@jrcrcu.edu.in |
+| Hemang Joshi       | 21BCON330       | hemang.21bcon330@jecrcu.edu.in |
+| Cherry Singh       | 21BCON346       | cherry.21bcon346@jecrcu.edu.in |
 
 - **Name of Mentor:** Mrs. Sneha Rathour  
 - **Submitted To:** Dr.Ravi Kumar Sharma  
-""")
+ """)
 with tab2:
     col1, col2 = st.columns(2)
     with col1:

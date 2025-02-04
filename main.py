@@ -3,7 +3,6 @@ from  phi.tools.duckduckgo import DuckDuckGo
 from phi.tools.file import FileTools
 from dotenv import load_dotenv
 from pathlib import Path
-from phi.agent import Agent
 from phi.model.google import Gemini
 import os
 # from phi.utils.pprint import pprint_run_response
@@ -67,7 +66,7 @@ multiple_agent=Agent(
     markdown=True,
     tools=[DuckDuckGo(), FileTools(base_dir=path, read_files=True, list_files=True,save_files=True)],
     show_tool_calls=True,
-    model=Gemini(id="gemini-2.0-flash-exp",api_key="AIzaSyC6s5EDOlgCvNrdorvmUASinDumM7vMWb8"),
+    model=Gemini(id="gemini-2.0-flash-exp",api_key=api_key),
     stream=True,
     name='multiple_agent',
 )
@@ -75,7 +74,7 @@ HR_agent=Agent(
     name='HR_agent',
     role='Comapre the job posting with the submitted resume',
     tools=[FileTools(base_dir=inputs, read_files=True, list_files=True,save_files=False)],
-    model=Gemini(id="gemini-2.0-flash-exp",api_key="AIzaSyC6s5EDOlgCvNrdorvmUASinDumM7vMWb8"),
+    model=Gemini(id="gemini-2.0-flash-exp",api_key=api_key),
     verbose=False,
     instructions=["Use the filetool to read the job_posting.md and  resume.md files",
                   "Compare how the candidate resume fit the job posting.",
